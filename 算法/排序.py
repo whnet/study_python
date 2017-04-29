@@ -45,16 +45,19 @@ def insert_sort(l):
         l[min_index] = tmp
         print(str(l))
 
+'''
+它重复地走访过要排序的数列，一次比较两个元素，
+如果他们的顺序错误就把他们交换过来。
+走访数列的工作是重复地进行直到没有再需要交换，
+也就是说该数列已经排序完成。
+'''
+def bub_sort(l):
+    # 冒泡排序, 相邻的两个数进行比较
+    count = len(l)
+    for i in range(0, count):
+        for j in range(i + 1, count):
+            if l[i] > l[j]:
+                l[i], l[j] = l[j], l[i]
+    return l
 
-l = [14,10,9,13,34,26,11,7]
-
-
-def bubble_sort(l):
-    for i in range(len(l),0,-1):
-        for j in range(len(l)-1):
-            value = l[j]
-            next_value = l[j+1]
-            if value > next_value:
-                tmp = l[j]
-                l[j] = l[j + 1]
-                l[j+1] = tmp
+print(bub_sort(l))
